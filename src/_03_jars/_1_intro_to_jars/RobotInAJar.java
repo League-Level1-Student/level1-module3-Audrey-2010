@@ -1,7 +1,13 @@
 package _03_jars._1_intro_to_jars;
 
+import org.jointheleague.graphical.robot.Robot;
 
 public class RobotInAJar {
+
+	public void setup () {
+		// TODO Auto-generated method stub
+		
+	}
 	
 	/* 1.   Create a String variable and initialize it to your name  */
 	
@@ -12,7 +18,7 @@ public class RobotInAJar {
 	
 	
 	/* 2.   Now declare a Robot variable and create a new Robot  */
-
+	
 	
 	/* Even if you did not make any syntax errors, there should be a red line under the word Robot.
 	 * This is because the type Robot is not part of the basic Java language. If you want to use 
@@ -55,10 +61,12 @@ public class RobotInAJar {
 	 * Select it. If all the red lines have disappeared, you can now complete the draw method below.
 	 * Run the program from the RobotInAJarRunner class and a shape should be drawn.
 	 */
-	
 	public void draw() {
 		/*** Write code to make your robot draw a shape here ****/
-		
-		
-	}
+		for(int i = 0; i<360; i++) {
+		robot.move(1);
+		robot.turn(1);
+		}
+	
+}
 }
