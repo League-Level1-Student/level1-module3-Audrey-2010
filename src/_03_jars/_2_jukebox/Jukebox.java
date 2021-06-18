@@ -15,7 +15,9 @@ import java.net.URL;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 
 import javazoom.jl.player.advanced.AdvancedPlayer;
@@ -24,6 +26,13 @@ import javazoom.jl.player.advanced.AdvancedPlayer;
  *   Right click your project and add it as a JAR (Under Java Build Path > Libraries).*/
 
 public class Jukebox implements Runnable, MouseListener {
+	JButton buzzer = new JButton();
+	JButton cat = new JButton();
+	JButton typing = new JButton();
+	
+	Song song1 = new Song("buzzer.mp3");
+	Song song2 = new Song("cat.mp3"); 
+	Song song3 = new Song("typing.mp3");
 
     public void run() {
 
@@ -39,17 +48,29 @@ public class Jukebox implements Runnable, MouseListener {
 		 * cover is clicked, stop the currently playing song, and play the one
 		 * that was selected.
 		 */
+    	JFrame frame = new JFrame();
+    	JPanel panel = new JPanel();
+    	JLabel label = new JLabel();
     	
-    	new Song("buzzer.mp3");
-		new Song("cat.mp3"); 
-		new Song("typing.mp3");
-		
-		JButton buzzer = new JButton();
-		JButton cat = new JButton();
-		JButton typing = new JButton();
+    	frame.show();
+    	
+    	frame.add(panel);
+    	panel.add(label);
+    	panel.add(buzzer);
+    	panel.add(cat);
+    	panel.add(typing);
+    			
+		label.setText("Jukebox :)");
 		
 		buzzer.addMouseListener(this);
 		cat.addMouseListener(this);
+		typing.addMouseListener(this);
+		
+		buzzer.setText("buzzer");
+		cat.setText("cat");
+		typing.setText("typing");
+		
+		frame.pack();
     }
     
     
@@ -66,8 +87,22 @@ public class Jukebox implements Runnable, MouseListener {
 		// TODO Auto-generated method stub
 		JButton buttonPressed = (JButton) arg0.getSource();
 		if(buttonPressed==buzzer) {
-			playSound(buzzer.mp3);
+			song1.play();
+			song2.stop();
+			song3.stop();
 		}
+		if(buttonPressed==cat) {
+			song2.play();
+			song1.stop();
+			song3.stop();
+		}
+		if(buttonPressed==typing) {
+			song3.play();
+			song1.stop();
+			song2.stop();
+		}
+		
+	
 	}
 
 
