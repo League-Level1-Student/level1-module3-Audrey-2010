@@ -101,7 +101,7 @@ public class Jukebox implements Runnable, MouseListener {
 			song1.stop();
 			song2.stop();
 		}
-		
+	
 	
 	}
 
