@@ -5,6 +5,7 @@ package _03_jars._3_magic_box;
  */
 
 
+import java.applet.AudioClip;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.event.MouseEvent;
@@ -12,9 +13,17 @@ import java.awt.event.MouseListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.net.URL;
+import java.util.Random;
 
 import javax.imageio.ImageIO;
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+import javax.swing.JApplet;
+import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 
@@ -36,13 +45,21 @@ public class MagicBox extends JPanel implements Runnable, MouseListener {
 	 *   
 	 *     
 	 */
+	int labelX;
+	int labelY;
+	int pick;
+	JLabel label = new JLabel();
+	MediaPalace palace = new MediaPalace();
+	
+	
 public void setup(){
-	JFrame frame = new JFrame();
-	JPanel panel = new JPanel();
+
+	Random random = new Random();
+	pick=random.nextInt(3);
 	
-	frame.add(panel);
 	
-	frame.addMouseListener(this);
+	
+
 }
 	BufferedImage backgroundImage;
 
@@ -64,6 +81,8 @@ public void setup(){
 		frame.pack();
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setVisible(true);
+		frame.addMouseListener(this);
+		
 	}
 
 	private void loadBackgroundImage() throws Exception {
@@ -81,11 +100,39 @@ public void setup(){
 	}
 
 	@Override
-	public void mouseClicked(MouseEvent e) {
+	public void  mouseClicked(MouseEvent e) {
 		// TODO Auto-generated method stub
+	System.out.println(e.getY());
+	int mouseX=e.getX();
+	int mouseY=e.getY();
+//351,651
+	//207,526
+	//338,169
+	if(mouseX>=300 && mouseY>=600) {
+		label=palace.loadImageFromHardDrive("src/cat.jpeg");
+		JFrame frame = new JFrame();
 		
+		frame.setVisible(true);
+		frame.add(label);
+		
+		
+		frame.pack();
 	}
-
+	if(mouseX>=200 && mouseY>=500) {
+		label=palace.loadImageFromHardDrive("src/toucan.jpg");
+		JFrame frame = new JFrame();
+		
+		frame.setVisible(true);
+		frame.add(label);
+		
+		
+		frame.pack();
+	}
+	if(mouseX>=300 && mouseY>=169) {
+		void=palace.speak("boo");
+	}
+}
+	
 	@Override
 	public void mousePressed(MouseEvent e) {
 		// TODO Auto-generated method stub
