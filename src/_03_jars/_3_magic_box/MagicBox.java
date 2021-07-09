@@ -49,6 +49,8 @@ public class MagicBox extends JPanel implements Runnable, MouseListener {
 	int labelY;
 	int pick;
 	JLabel label = new JLabel();
+	JLabel label2 = new JLabel();
+	JLabel label3 = new JLabel();
 	MediaPalace palace = new MediaPalace();
 	
 	
@@ -102,6 +104,7 @@ public void setup(){
 	@Override
 	public void  mouseClicked(MouseEvent e) {
 		// TODO Auto-generated method stub
+	
 	System.out.println(e.getY());
 	int mouseX=e.getX();
 	int mouseY=e.getY();
@@ -119,18 +122,19 @@ public void setup(){
 		frame.pack();
 	}
 	if(mouseX>=200 && mouseY>=500) {
-		label=palace.loadImageFromHardDrive("src/toucan.jpg");
-		JFrame frame = new JFrame();
+		label2=palace.loadImageFromHardDrive("src/toucan.jpg");
+		JFrame frame2 = new JFrame();
 		
-		frame.setVisible(true);
-		frame.add(label);
+		frame2.add(label);
+		frame2.setVisible(true);
 		
 		
-		frame.pack();
+		frame2.pack();
 	}
 	if(mouseX>=300 && mouseY>=169) {
-		void=palace.speak("boo");
+		palace.speak("hi");
 	}
+	
 }
 	
 	@Override
