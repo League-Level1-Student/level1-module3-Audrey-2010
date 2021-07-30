@@ -10,15 +10,15 @@ import javax.swing.JApplet;
 import javax.swing.JOptionPane;
 
 public class CowTimer {
-
+	int milliseconds 6000;
 	/*
 	 * 1. Make a constructor for the CowTimer class that initializes the minutes
 	 * variable
 	 */
 
-CowTimer(){
-	
-		minutes=5;
+	CowTimer(int settime) {
+
+		minutes = 5;
 	}
 
 	/* 4. Complete the main method of the CowTimerRunner class */
@@ -35,14 +35,14 @@ CowTimer(){
 		 * 2. Count down the minutes, print the current minute then sleep for the number
 		 * of minutes using Thread.sleep(int milliseconds).
 		 */
-for(int i =0; i<minutes; i++) {
-System.out.println(i);
-Thread.sleep(int milliseconds);
-if(i==1) {
-	playSound("moo.wav");
-	System.exit(0);
-}
-}
+		for (int i = 0; i < minutes; i++) {
+			System.out.println(i);
+			Thread.sleep(milliseconds);
+			if (i == 1) {
+				playSound("moo.wav");
+
+			}
+		}
 		/*
 		 * 3. When the timer is finished, use the playSound method to play a moo sound.
 		 * You can use the .wav file in the default package, or you can download one
